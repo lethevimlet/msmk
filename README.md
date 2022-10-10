@@ -20,8 +20,8 @@ En aras de englobar todo lo solicitado de la mejor manera posible he sintetizado
 - Conceptos fundamentales de HTML/CSS/JS para producir apliaciones multiplataforma/móviles
 - PWA y Electron/Apache Cordova
 
-Con estqa propuesta, todo está relacionado y mantiene una progresión lógica y real con el panorma laboral. 
-He obiviado los frameworks especificos pues no son de relevancia y cubrimos otras maneras mejores de realizar software multiplataforma/móvil mediante tecnologías web.
+Con esta propuesta, todo está relacionado y mantiene una progresión lógica y real con el panorma laboral. 
+He obviado los frameworks especificos pues no son de relevancia y cubrimos otras maneras mejores de realizar software multiplataforma/móvil mediante tecnologías web.
 Por último no he incluido especificamente el tema de bots pues queda cubierto por el uso de APIs.
 
 Todos los conceptos aquí mostrados estarán acompañados de un proyecto que pone en practica lo aprendido.
