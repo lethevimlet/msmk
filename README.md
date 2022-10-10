@@ -1,4 +1,4 @@
-# msmk
+# Curso desarollo multiplataforma MSMK
 
 ## Solicitud
 - Desarrollo de APIS y SQL (crear y manipular bases de datos en Phyton)
