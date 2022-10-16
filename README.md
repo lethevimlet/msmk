@@ -1,5 +1,9 @@
 # Curso desarollo multiplataforma MSMK
 
+Enlaces de interes:
+- https://replit.com/@CodeLevi/msmk
+- https://github.com/lethevimlet/msmk
+
 ## Solicitud
 - Desarrollo de APIS y SQL (crear y manipular bases de datos en Phyton)
 - Introducción a C, C++ 
