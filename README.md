@@ -15,7 +15,7 @@ Enlaces de interes:
 
 ## Propuesta
 En aras de englobar todo lo solicitado de la mejor manera posible he sintetizado los puntos anteriores en:
-
+buenas tardes
 - Bases de los sistemas multiplataforma y nacimiento de las Rich Internet application (RIA)
 - Conceptos fundamentales de los lenguajes NodeJS/Python/Java/C/C++/C#
 - Introducción a redes basica (TCP/UDP, NAT, IPv4/v6)
