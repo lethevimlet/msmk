@@ -38,3 +38,14 @@ function test_c() {
         });
     });
 }
+
+
+function test_sql() {
+  fetch("endpoint/test-sql")
+    .then(function(response) {
+      response.text()
+        .then(function(text) {
+          getOutput().innerHTML = text;
+        });
+    });
+}

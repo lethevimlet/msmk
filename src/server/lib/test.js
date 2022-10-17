@@ -1,5 +1,5 @@
 module.exports = function(count) {
-  var s = "I'am JS<br><br>";
+  var s = "I'm JS<br><br>";
   s += "Count: " + count + "<br><br>";
 
   for (var i = 0; i < count; i++) {

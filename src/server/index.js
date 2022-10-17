@@ -6,7 +6,7 @@ app.use(express.static("src/webapp"));
 app.use(endpoint);
 
 
-app.get("/test", function (req, res) {
+app.get("/test", function(req, res) {
   res.send("This is a test!");
 });
 
