@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
-    "start": "nodemon --watch src src/index.js",
+    "start": "nodemon --delay 3 --watch src src/index.js",
+    "build": "gcc -o src/server/lib/test src/server/lib/test.c && chmod +x src/server/lib/test",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
