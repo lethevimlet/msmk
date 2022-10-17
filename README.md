@@ -31,4 +31,4 @@ He obviado los frameworks especificos pues no son de relevancia y cubrimos otras
 Por último no he incluido especificamente el tema de bots pues queda cubierto por el uso de APIs.
 
 Todos los conceptos aquí mostrados estarán acompañados de un proyecto que pone en practica lo aprendido mediante la creación de un chat.
-
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
