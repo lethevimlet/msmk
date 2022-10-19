@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <style>
+   html, body {
+     padding: 0;
+   }
+
+   body {
+     display: flex;
+     flex-direction: column;
+   }
+   
+   #chat {
+     background-color: black;
+     color: white;
+     min-height: 100px;
+   }
+  
+   #chat-bar {
+     display: flex;
+     flex-direction: row;
+   }
+
+   #chat-send {
+     background-color: lightgreen;
+     color: black;
+     min-height: 10px;
+   }
+
+   #chat-input {
+     flex-grow: 1;
+     background-color: darkgray;
+     min-height: 10px;
+   }
+ </style>
+ <script>
+  function getChat() {
+    fetch("chat/list")
+    .then(function(response) {
+      response.text()
+        .then(function(text) {
+          document.querySelector("#chat").innerHTML = text;
+        });
+    });
+  }   
+
+  function sendMessage() {
+    var el = document.querySelector("#chat-input");
+    var text = el.innerHTML;
+    el.innerHTML = "";
+    
+    fetch("chat/message", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: text 
+      })
+    })
+    .then(function(response) {
+      response.text()
+        .then(function(text) {
+          getChat();
+        });
+    });
+  }  
+
+   setInterval(function() {
+     getChat();
+   }, 3000);
+ </script>
+</head>
+
+<body>
+  <div id="chat-bar">
+    <div id="chat-input" contenteditable="true"></div>
+    <div id="chat-send" onclick="sendMessage()">Send</div>
+  </div>
+  <div id="chat"></div>
+</body>
+
+</html>
