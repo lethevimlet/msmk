@@ -37,20 +37,32 @@
    }
  </style>
  <script>
-  function getChat() {
+  var chatEl;
+  var chatInputEl;
+
+  function getChatEl() {
+    chatEl = chatEl || document.querySelector("#chat");
+    return chatEl;
+  }
+
+  function getChatInputEl() {
+    chatInputEl = chatInputEl || document.querySelector("##chat-input");
+    return chatInputEl;
+  }
+   
+  function getChatList() {
     fetch("chat/list")
     .then(function(response) {
       response.text()
         .then(function(text) {
-          document.querySelector("#chat").innerHTML = text;
+          getChatEl().innerHTML = text;
         });
     });
   }   
 
   function sendMessage() {
-    var el = document.querySelector("#chat-input");
-    var text = el.innerHTML;
-    el.innerHTML = "";
+    var text = getChatInputEl().innerHTML;
+    getChatInputEl().innerHTML = "";
     
     fetch("chat/message", {
       method: "POST",
@@ -65,13 +77,13 @@
     .then(function(response) {
       response.text()
         .then(function(text) {
-          getChat();
+          getChatList();
         });
     });
   }  
 
    setInterval(function() {
-     getChat();
+     getChatList();
    }, 3000);
  </script>
 </head>

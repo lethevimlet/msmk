@@ -9,9 +9,11 @@ router.get("/chat/test", function(req, res, next) {
 
 router.get("/chat/list", function(req, res, next) {
   var s = "";
-  messages.forEach(function(element){
-    s += element + "<br><br>"; 
-  });
+  
+  for(var message of messages) {
+     s += message + "<br><br>"; 
+  }
+  
   res.send(s);
 });
 
