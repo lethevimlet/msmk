@@ -3,12 +3,17 @@ const db = new sqlite3.Database("./src/db/app.db");
 
 module.exports.validateUser = function(username, password, cb) {
   db.serialize(function() {
-    var text = "";
+    var valid = false;
 
-    db.each("SELECT id, username, password FROM Users", function(err, row) {
-      text += row.id + " " + row.username + " " + row.password + "<br>";
+    db.each("SELECT id, username, password FROM Users WHERE username=\"" + username + "\" AND password=\"" + password + "\"", function(err, row) {
+      //text +=  + " " + row.username + " " + row.password + "<br>";    
+      if (row.id >= 0) {
+        valid = true;
+      }
     }, function(err, done) {
-      cb(text);
+      //console.log(err);
+      cb(valid);
     });
+
   });
 };

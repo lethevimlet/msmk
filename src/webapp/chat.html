@@ -35,8 +35,27 @@
      background-color: darkgray;
      min-height: 10px;
    }
+
+   #chat-login {
+     display: flex;
+     flex-direction: column;
+   }
+
+   .hide {
+     display: none !important;
+   }
+   
+   .username {
+     color: lightgreen;
+   }
+   
+   .date {
+     font-size: 8px;
+   }
  </style>
  <script>
+
+  // Funciones para manipular el DOM
   var chatEl;
   var chatInputEl;
 
@@ -46,15 +65,21 @@
   }
 
   function getChatInputEl() {
-    chatInputEl = chatInputEl || document.querySelector("##chat-input");
+    chatInputEl = chatInputEl || document.querySelector("#chat-input");
     return chatInputEl;
   }
-   
+
+  // Funciones para hacer peticiones
   function getChatList() {
     fetch("chat/list")
     .then(function(response) {
       response.text()
         .then(function(text) {
+          //var textNode = document.createTextNode(text);
+          //getChatEl().innerHTML = "";
+          //getChatEl().appendChild(textNode);
+
+          // CUIDADO! Esto permite XSS
           getChatEl().innerHTML = text;
         });
     });
@@ -75,25 +100,68 @@
       })
     })
     .then(function(response) {
-      response.text()
-        .then(function(text) {
-          getChatList();
-        });
+      getChatList();
     });
   }  
 
-   setInterval(function() {
-     getChatList();
-   }, 3000);
+  function login() {
+    var username = document.querySelector("#username").value;
+    var password = document.querySelector("#password").value;
+    
+    fetch("chat/login", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    })
+    .then(function(response) {
+      response.text()
+        .then(function(text) {
+          if(text == "true") {
+            var chatContainer = document.querySelector("#chat-container");
+            chatContainer.classList.remove("hide");
+            var chatLogin = document.querySelector("#chat-login");
+            chatLogin.classList.add("hide");
+            getChatList();
+          }
+      });   
+    });
+  }  
+
+  // Funcion para actualizar cada 3s
+  setInterval(function() {
+    getChatList();
+  }, 3000);
  </script>
 </head>
 
 <body>
-  <div id="chat-bar">
-    <div id="chat-input" contenteditable="true"></div>
-    <div id="chat-send" onclick="sendMessage()">Send</div>
+  <div id="chat-login">
+    <label>User:</label>
+    <input type="text" id="username">
+    <label>Password:</label>
+    <input type="password" id="password">
+    <input type="button" onclick="login()" value="Login">
   </div>
-  <div id="chat"></div>
+  <div id="chat-container" class="hide">
+    <div id="chat-bar">
+      <div id="chat-input" contenteditable="true"></div>
+      <div id="chat-send" onclick="sendMessage()">Send</div>
+    </div>
+    <div id="chat"></div>    
+  </div>
+  <script>
+    document.querySelector('#chat-input').addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        sendMessage();
+      }
+    });
+  </script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
     "url": "git+https://github.com/lethevimlet/msmk.git"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "4.18.2",
     "nodemon": "2.0.20",
     "socket.io": "4.5.3",

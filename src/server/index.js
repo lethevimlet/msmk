@@ -1,12 +1,18 @@
 const express = require("express");
 const app = express();
-const endpoint = require("./api/endpoint");
 const server = require("http").createServer(app);
+const cookieParser = require("cookie-parser");
 const io = require("socket.io")(server);
 
+// Middleware para servir archivos estaticos
 app.use(express.static("src/webapp"));
+
+// Middleware para convertir JSON en objetos de JS y manipular cookies
 app.use(express.json());
-app.use(endpoint);
+app.use(cookieParser());
+
+// Nuestra API
+app.use(require("./api/endpoint"));
 app.use(require("./api/chat-endpoint"));
 
 
