@@ -15,7 +15,7 @@ Enlaces de interes:
 
 ## Propuesta
 En aras de englobar todo lo solicitado de la mejor manera posible he sintetizado los puntos anteriores en:
-
+buenas tardes
 - Bases de los sistemas multiplataforma y nacimiento de las Rich Internet application (RIA)
 - Conceptos fundamentales de los lenguajes NodeJS/Python/Java/C/C++/C#
 - Introducción a redes basica (TCP/UDP, NAT, IPv4/v6)
@@ -31,4 +31,4 @@ He obviado los frameworks especificos pues no son de relevancia y cubrimos otras
 Por último no he incluido especificamente el tema de bots pues queda cubierto por el uso de APIs.
 
 Todos los conceptos aquí mostrados estarán acompañados de un proyecto que pone en practica lo aprendido mediante la creación de un chat.
-
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
